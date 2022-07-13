@@ -32,7 +32,6 @@ class ViewContact : AppCompatActivity() {
         var address = extras.getStringExtra("ADDRESS")
 
         var image = bindingView.imgProfile
-
         actionBar.setTitle(name)
         bindingView.tvNameOne.text = name
         bindingView.tvNumber.text = phone

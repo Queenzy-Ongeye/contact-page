@@ -25,6 +25,7 @@ class ViewContact : AppCompatActivity() {
         val actionBar: ActionBar? = supportActionBar
         actionBar!!.setDisplayHomeAsUpEnabled(true)
         actionBar!!.setDisplayShowHomeEnabled(true)
+
         val extras = intent
         var name = extras.getStringExtra("NAME")
         var phone = extras.getStringExtra("PHONE")

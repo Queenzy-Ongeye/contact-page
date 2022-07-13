@@ -1,11 +1,15 @@
 package dev.queen.contacts
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
+import com.squareup.picasso.NetworkPolicy
 import com.squareup.picasso.Picasso
 import dev.queen.contacts.databinding.ContactListItemBinding
 
@@ -21,6 +25,7 @@ class ConctactRVAdapter(var contactList: List<Contact>) :
 
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         var currentItem = contactList.get(position)
+        val context = holder.itemView.context
 //        val contactBinding = holder.binding
 //        contactBinding.tvName.text = currentItem.name
 //        contactBinding.tvPhone.text = currentItem.phone
@@ -39,8 +44,22 @@ class ConctactRVAdapter(var contactList: List<Contact>) :
                 .resize(500, 500)
                 .centerCrop()
                 .placeholder(R.drawable.ic_baseline_person_24)
+                .networkPolicy(NetworkPolicy.OFFLINE)
                 .into(imageView2)
 
+            cvCons.setOnClickListener {
+                var intent = Intent(context, ViewContact::class.java)
+                intent.putExtra("NAME", currentItem.name)
+                intent.putExtra("PHONE", currentItem.phone)
+                intent.putExtra("EMAIL", currentItem.email)
+                intent.putExtra("ADDRESS", currentItem.address)
+                intent.putExtra("PROFILE", currentItem.imgView)
+                context.startActivity(intent)
+            }
+        }
+
+        holder.binding.imageView2.setOnClickListener {
+            Snackbar.make(it, "Beautiful people", Snackbar.LENGTH_LONG).show()
         }
     }
 

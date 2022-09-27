@@ -1,9 +1,6 @@
-package dev.queen.contacts
+package dev.queen.contacts.ui
 
-import android.icu.number.NumberFormatter.with
-import android.icu.number.NumberRangeFormatter.with
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import com.squareup.picasso.NetworkPolicy

@@ -9,7 +9,6 @@ import dev.queen.contacts.Contact
 @Database(entities = [Contact::class], version = 1)
 abstract class ContactsDB : RoomDatabase() {
     abstract fun contactDao(): ContactDao
-
     companion object{
         private var database: ContactsDB? = null
 

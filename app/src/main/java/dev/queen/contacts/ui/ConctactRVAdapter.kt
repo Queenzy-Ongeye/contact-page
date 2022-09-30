@@ -12,6 +12,7 @@ import dev.queen.contacts.ui.ViewContact
 
 class ConctactRVAdapter(var contactList: List<Contact>) :
     RecyclerView.Adapter<ContactViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactViewHolder {
 
         var binding =
@@ -23,11 +24,6 @@ class ConctactRVAdapter(var contactList: List<Contact>) :
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         var currentItem = contactList.get(position)
         val context = holder.itemView.context
-//        val contactBinding = holder.binding
-//        contactBinding.tvName.text = currentItem.name
-//        contactBinding.tvPhone.text = currentItem.phone
-//        contactBinding.tvEmail.text = currentItem.email
-//        contactBinding.tvAdd.text = currentItem.address
 
         with(holder.binding) {
             tvName.text = currentItem.name
